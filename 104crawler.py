@@ -11,10 +11,10 @@ res = requests.get(url, headers=headers)
 soup = BeautifulSoup(res.text, 'html.parser')
 jobs = soup.find_all('article',class_='js-job-item') 
 
-fn='104人力銀行職缺內容.csv'                                                 #取CSV檔名
-columns_name=['職位名稱','公司名稱','網址','所需技能']                     #第一欄的名稱
-with open(fn,'w',newline='',) as csvFile:                                   #定義CSV的寫入檔,並且每次寫入完會換下一行
-    dictWriter = csv.DictWriter(csvFile,fieldnames=columns_name)            #定義寫入器
+fn='104人力銀行職缺內容.csv'                                             
+columns_name=['職位名稱','公司名稱','網址','所需技能']                     
+with open(fn,'w',newline='',) as csvFile:                                   
+    dictWriter = csv.DictWriter(csvFile,fieldnames=columns_name)            
     dictWriter.writeheader()
 
     for job in jobs:
